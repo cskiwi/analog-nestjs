@@ -2,10 +2,16 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "lib": ["es2018", "dom"],
-    "types": ["vite/client", "node"]
+    "types": [],
+    "target": "ES2022",
+    "useDefineForClassFields": false
   },
-  "files": ["src/server/main.ts", "src/app/main.ts","vite.config.ts"],
-  "include": ["src/**/*"],
-  "exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
+  "files": ["src/main.ts"],
+  "include": [
+    "src/**/*.d.ts",
+    "src/app/routes/**/*.ts",
+    "src/app/pages/**/*.page.ts",
+    "src/server/**/*.ts"
+  ],
+  "exclude": ["**/*.test.ts", "**/*.spec.ts"]
 }

@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
+  selector: 'app-root',
   standalone: true,
-  imports: [RouterModule],
-  selector: 'client-root',
+  imports: [RouterOutlet],
   template: `<router-outlet></router-outlet>`,
+  styles: [
+    `
+      :host {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+      }
+    `,
+  ],
 })
 export class AppComponent {}
