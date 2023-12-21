@@ -1,9 +1,9 @@
 {
-  "name": "client-angular",
+  "name": "nestjs-angular",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "client-angular",
-  "sourceRoot": "apps/client-angular/src",
+  "sourceRoot": "apps/nestjs-angular/src",
   "tags": [],
   "targets": {
     "build": {
@@ -14,7 +14,7 @@
         "{workspaceRoot}/dist/server"
       ],
       "options": {
-        "cwd": "apps/client-angular",
+        "cwd": "apps/nestjs-angular",
         "command": "vite build && vite build --ssr"
       },
       "defaultConfiguration": "production",
@@ -36,10 +36,10 @@
         "{workspaceRoot}/dist/server"
       ],
       "options": {
-        "main": "apps/client-angular/src/main.ts",
-        "configFile": "apps/client-angular/vite.config.ts",
+        "main": "apps/nestjs-angular/src/main.ts",
+        "configFile": "apps/nestjs-angular/vite.config.ts",
         "logLevel": "info",
-        "outputPath": "dist/apps/client-angular"
+        "outputPath": "dist/apps/nestjs-angular"
       },
       "defaultConfiguration": "production",
       "configurations": {
@@ -56,23 +56,23 @@
       "executor": "@analogjs/platform:vite-dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "client-angular:build",
+        "buildTarget": "nestjs-angular:build",
         "port": 4200
       },
       "configurations": {
         "development": {
-          "buildTarget": "client-angular:build:development",
+          "buildTarget": "nestjs-angular:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "client-angular:build:production"
+          "buildTarget": "nestjs-angular:build:production"
         }
       }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "client-angular:build"
+        "buildTarget": "nestjs-angular:build"
       }
     },
     "test": {

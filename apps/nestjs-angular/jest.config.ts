@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'client-analog',
+  displayName: 'nestjs-angular',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/client-analog',
+  coverageDirectory: '../../coverage/apps/nestjs-angular',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

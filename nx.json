@@ -56,7 +56,7 @@
     ],
     "sharedGlobals": []
   },
-  "defaultProject": "client-angular",
+  "defaultProject": "nestjs-angular",
   "generators": {
     "@nx/angular:application": {
       "style": "scss",

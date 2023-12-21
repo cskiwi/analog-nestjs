@@ -1,15 +1,15 @@
 {
-  "name": "client-angular-e2e",
+  "name": "nestjs-analog-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/client-angular-e2e/src",
+  "sourceRoot": "apps/nestjs-analog-e2e/src",
   "targets": {
     "e2e": {
       "executor": "@nx/playwright:playwright",
       "outputs": [
-        "{workspaceRoot}/dist/.playwright/apps/client-angular-e2e"
+        "{workspaceRoot}/dist/.playwright/apps/nestjs-analog-e2e"
       ],
       "options": {
-        "config": "apps/client-angular-e2e/playwright.config.ts"
+        "config": "apps/nestjs-analog-e2e/playwright.config.ts"
       }
     },
     "lint": {
@@ -20,6 +20,6 @@
     }
   },
   "implicitDependencies": [
-    "client-angular"
+    "nestjs-analog"
   ]
 }
