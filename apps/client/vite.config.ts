@@ -6,7 +6,7 @@ import { defineConfig, splitVendorChunkPlugin } from 'vite';
 export default defineConfig({root: __dirname,
   publicDir: 'src/public',
   build: {
-    outDir: '../../dist/angular-nestjs-vite'
+    outDir: '../../dist/client'
   },
   plugins: [
     angular(),

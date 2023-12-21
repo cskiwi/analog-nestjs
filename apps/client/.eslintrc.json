@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "angular-nestjs-vite",
+            "prefix": "client",
             "style": "kebab-case"
           }
         ]
