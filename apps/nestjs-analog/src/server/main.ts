@@ -1,21 +1,20 @@
-import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import type { Express } from 'express';
+import httpDevServer from 'vavite/http-dev-server';
 import { AppModule } from './app.module';
 
-async function createApp(): Promise<INestApplication> {
-  const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api');
-  return app;
-}
+bootstrap();
 
 async function bootstrap() {
-  const app = await createApp();
-  app.init();
-  await app.listen(3000);
-}
+  const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix('api');
 
-if (import.meta.env?.PROD) {
-  bootstrap();
+  if (import.meta.env.PROD) {
+    const port = import.meta.env.VITE_PORT || 3000;
+    app.listen(port);
+  } else {
+    await app.init();
+    const expressApp = (await app.getHttpAdapter().getInstance()) as Express;
+    httpDevServer!.on('request', expressApp);
+  }
 }
-
-export const viteNodeApp = createApp();

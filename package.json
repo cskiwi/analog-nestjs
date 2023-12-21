@@ -8,6 +8,7 @@
     "test": "nx test",
     "lint": "nx lint"
   },
+  "type": "module",
   "private": true,
   "dependencies": {
     "@analogjs/content": "^0.2.29",
