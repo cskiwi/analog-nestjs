@@ -56,7 +56,7 @@
     ],
     "sharedGlobals": []
   },
-  "defaultProject": "client",
+  "defaultProject": "client-angular",
   "generators": {
     "@nx/angular:application": {
       "style": "scss",

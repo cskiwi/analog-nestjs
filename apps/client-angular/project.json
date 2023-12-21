@@ -1,9 +1,9 @@
 {
-  "name": "client",
+  "name": "client-angular",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "client",
-  "sourceRoot": "apps/client/src",
+  "prefix": "client-angular",
+  "sourceRoot": "apps/client-angular/src",
   "tags": [],
   "targets": {
     "build": {
@@ -14,7 +14,7 @@
         "{workspaceRoot}/dist/server"
       ],
       "options": {
-        "cwd": "apps/client",
+        "cwd": "apps/client-angular",
         "command": "vite build && vite build --ssr"
       },
       "defaultConfiguration": "production",
@@ -36,10 +36,10 @@
         "{workspaceRoot}/dist/server"
       ],
       "options": {
-        "main": "apps/client/src/main.ts",
-        "configFile": "apps/client/vite.config.ts",
+        "main": "apps/client-angular/src/main.ts",
+        "configFile": "apps/client-angular/vite.config.ts",
         "logLevel": "info",
-        "outputPath": "dist/apps/client"
+        "outputPath": "dist/apps/client-angular"
       },
       "defaultConfiguration": "production",
       "configurations": {
@@ -53,26 +53,26 @@
       }
     },
     "serve": {
-      "executor": "@nx/vite:dev-server",
+      "executor": "@analogjs/platform:vite-dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "client:build-dev",
-        "port": 5200
+        "buildTarget": "client-angular:build",
+        "port": 4200
       },
       "configurations": {
         "development": {
-          "buildTarget": "client:build-dev:development",
+          "buildTarget": "client-angular:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "client:build-dev:production"
+          "buildTarget": "client-angular:build:production"
         }
       }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "client:build"
+        "buildTarget": "client-angular:build"
       }
     },
     "test": {

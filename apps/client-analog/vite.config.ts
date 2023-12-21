@@ -9,15 +9,13 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 export default defineConfig(({ mode }) => {
   return {
     publicDir: 'src/public',
-    root: 'apps/app',
     build: {
       target: ['es2020'],
+      outDir: '../../dist/client-analog',
     },
 
     plugins: [
-      analog({
-        ssr: false,
-      }),
+      analog(),
       vavite({
         serverEntry: '/src/server/main.ts',
         serveClientAssetsInDev: true,

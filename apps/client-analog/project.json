@@ -1,0 +1,91 @@
+{
+  "name": "client-analog",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "client-analog",
+  "sourceRoot": "apps/client-analog/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{options.outputPath}",
+        "{workspaceRoot}/dist/client",
+        "{workspaceRoot}/dist/server"
+      ],
+      "options": {
+        "cwd": "apps/client-analog",
+        "command": "vite build && vite build --ssr"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "build-dev": {
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{options.outputPath}",
+        "{workspaceRoot}/dist/client",
+        "{workspaceRoot}/dist/server"
+      ],
+      "options": {
+        "main": "apps/client-analog/src/main.ts",
+        "configFile": "apps/client-analog/vite.config.ts",
+        "logLevel": "info",
+        "outputPath": "dist/apps/client-analog"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@analogjs/platform:vite-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "client-analog:build",
+        "port": 5200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "client-analog:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "client-analog:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "client-analog:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    }
+  }
+}
